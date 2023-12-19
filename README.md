@@ -1,6 +1,6 @@
 # INF20010 - Database Systems
 
-This repository contains my work on assignments for a course INF20010 on Database Systems and Data Warehousing.
+This repository contains my work on assignments for course INF20010 on Database Systems and Data Warehousing.
 
 ## Learning Objectives
 
