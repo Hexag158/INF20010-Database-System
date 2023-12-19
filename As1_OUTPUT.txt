@@ -1,0 +1,135 @@
+Student ID: 103806269
+--------------------------------------------
+Deleting all Customer rows
+4 rows deleted"
+--------------------------------------------
+Deleting all product rows
+3 rows deleted.
+==========TEST ADD CUSTOMERS ==========================
+--------------------------------------------
+ADDING CUSTOMER: 1 Name: Colin Smith
+Customer Added OK
+--------------------------------------------
+ADDING CUSTOMER: 2 Name: Jill Davis
+Customer Added OK
+--------------------------------------------
+ADDING CUSTOMER: 3 Name: Dave Brown
+Customer Added OK
+--------------------------------------------
+ADDING CUSTOMER: 4 Name: Kirsty Glass
+Customer Added OK
+--------------------------------------------
+ADDING CUSTOMER: 1 Name: Jenny Nighy
+ORA-20017: Duplicate customer ID
+--------------------------------------------
+ADDING CUSTOMER: -3 Name: Emma Jones
+ORA-20029: Customer ID out of range
+--------------------------------------------
+ADDING CUSTOMER: 666 Name: Peter White
+ORA-20029: Customer ID out of range
+==========TEST ADD PRODUCTS==========================
+--------------------------------------------
+ADDING PRODUCT: 1001 Name: ProdA Price: 10
+Product Added OK
+--------------------------------------------
+ADDING PRODUCT: 1002 Name: ProdB Price: 20
+Product Added OK
+--------------------------------------------
+ADDING PRODUCT: 1003 Name: ProdC Price: 35
+Product Added OK
+--------------------------------------------
+ADDING PRODUCT: 1001 Name: ProdD Price: 10
+ORA-20037: Duplicate product ID
+--------------------------------------------
+ADDING PRODUCT: 3333 Name: ProdD Price: 100
+ORA-20049: Product ID out of range
+--------------------------------------------
+ADDING PRODUCT: 1004 Name: ProdD Price: 1234
+ORA-20056: Price out of range
+===========TEST STATUS UPDATES ==========================
+--------------------------------------------
+Updating Status.3 Status: SUSPEND
+Update OK
+--------------------------------------------
+Updating Status.4 Status: QWERTY
+ORA-20139: Invalid Status value
+===========TEST CUSTOMER RETREIVAL ==========================
+--------------------------------------------
+Getting Details for CustId 1
+Custid: 1 Name: Colin Smith Status: OK SalesYTD:0
+--------------------------------------------
+Getting Details for CustId 2
+Custid: 2 Name: Jill Davis Status: OK SalesYTD:0
+--------------------------------------------
+Getting Details for CustId 22
+ORA-20067: Customer ID not found
+===========TEST CUSTOMER RETREIVAL ==========================
+-------------------------------------
+Getting Details for Prod ID 1001
+ProdID:1001 Name:ProdA Price:10 SalesYTD:0
+-------------------------------------
+Getting Details for Prod ID 1002
+ProdID:1002 Name:ProdB Price:20 SalesYTD:0
+-------------------------------------
+Getting Details for Prod ID 2222
+ORA-20097: Product ID not found
+===========TEST SIMPLE SALES ==========================
+----------------------------------------------
+Adding Simple Sale. Cust Id:1 Prod ID:1001 Qty:15
+Added Simple Sale OK
+----------------------------------------------
+Adding Simple Sale. Cust Id:2 Prod ID:1002 Qty:37
+Added Simple Sale OK
+----------------------------------------------
+Adding Simple Sale. Cust Id:3 Prod ID:1002 Qty:15
+ORA-20159: Customer status is not OK
+----------------------------------------------
+Adding Simple Sale. Cust Id:4 Prod ID:1001 Qty:100
+ORA-20000: ORA-20089: Amount out of range
+--------------------------------------------
+Summing Customer SalesYTD
+All Customer Total: 890
+--------------------------------------------
+Summing prodcut SalesYTD
+All Product Total: 890
+===========MORE TESTING OF SIMPLE SALES ==========================
+----------------------------------------------
+Adding Simple Sale. Cust Id:99 Prod ID:1002 Qty:60
+ORA-20073: Customer ID not found
+----------------------------------------------
+Adding Simple Sale. Cust Id:2 Prod ID:5555 Qty:60
+ORA-20076: Product ID not found
+----------------------------------------------
+Adding Simple Sale. Cust Id:1 Prod ID:1002 Qty:6666
+ORA-20147: Sale Quantity outside valid range
+--------------------------------------------
+Summing Customer SalesYTD
+All Customer Total: 890
+--------------------------------------------
+Summing prodcut SalesYTD
+All Product Total: 890
+==========LIST ALL CUSTOMERS AND PRODUCTS==========================
+--------------------------------------------
+Getting Details for CustId 1
+Custid: 1 Name: Colin Smith Status: OK SalesYTD:150
+--------------------------------------------
+Getting Details for CustId 2
+Custid: 2 Name: Jill Davis Status: OK SalesYTD:740
+--------------------------------------------
+Getting Details for CustId 3
+Custid: 3 Name: Dave Brown Status: SUSPEND SalesYTD:0
+--------------------------------------------
+Getting Details for CustId 4
+Custid: 4 Name: Kirsty Glass Status: OK SalesYTD:0
+-------------------------------------
+Getting Details for Prod ID 1001
+ProdID:1001 Name:ProdA Price:10 SalesYTD:150
+-------------------------------------
+Getting Details for Prod ID 1002
+ProdID:1002 Name:ProdB Price:20 SalesYTD:740
+-------------------------------------
+Getting Details for Prod ID 1003
+ProdID:1003 Name:ProdC Price:35 SalesYTD:0
+
+
+PL/SQL procedure successfully completed.
